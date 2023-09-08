@@ -1,0 +1,9 @@
+FROM ubuntu:22.04
+
+RUN apt -y update && apt -y install openvpn openvpn-systemd-resolved && apt -y update
+
+WORKDIR /ovpn
+
+COPY ./.openvpn/* .
+
+CMD [ "openvpn", "open.ovpn" ]

@@ -1,0 +1,13 @@
+version: '3.9'
+
+services:
+  openvpn:
+    build: 
+      context: .
+      dockerfile: Dockerfile.openvpn
+    container_name: docker_container_fast_solutions_openvpn
+    devices:
+      - "/dev/net/tun:/dev/net/tun"
+    cap_add:
+     - NET_ADMIN
+    network_mode: host
